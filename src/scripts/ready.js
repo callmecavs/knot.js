@@ -10,3 +10,9 @@ Emitter.prototype.add = function(eventName, eventHandler) {
 
   return this;
 };
+
+Emitter.prototype.removeAll = function(eventName) {
+  delete this.handlers[eventName];
+
+  return this;
+};
