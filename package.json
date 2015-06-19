@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "",
+
+  "devDependencies": {
+    "gulp":              "*",
+    "gulp-autoprefixer": "*",
+    "gulp-babel":        "*",
+    "gulp-concat":       "*",
+    "gulp-connect":      "*",
+    "gulp-htmlmin":      "*",
+    "gulp-imagemin":     "*",
+    "gulp-load-plugins": "*",
+    "gulp-plumber":      "*",
+    "gulp-sass":         "*",
+    "gulp-uglify":       "*",
+    "node-notifier":     "*"
+  }
+}
