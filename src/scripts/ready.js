@@ -23,3 +23,19 @@ Emitter.prototype.removeAll = function(eventName) {
 
   return this;
 };
+
+Emitter.prototype.emit = function(eventName) {
+  if(arguments.length > 1) {
+    var parameters = [];
+
+    for(var i = 1; i < arguments.length; i++) {
+      parameters.push(arguments[i]);
+    }
+  }
+
+  this.handlers[eventName].forEach(function(eventHandler) {
+    eventHandler.apply(this, parameters);
+  }.bind(this));
+
+  return this;
+};
