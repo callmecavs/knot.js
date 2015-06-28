@@ -20,6 +20,16 @@ Emitter.prototype.has = function(eventName) {
 }
 
 /**
+ * Get the array of event handlers.
+ *
+ * @param {String} eventName
+ * @return {Function[]}
+*/
+Emitter.prototype.get = function(eventName) {
+  return this.handlers[eventName];
+}
+
+/**
  * Add a handler to an event.
  *
  * @param {String} eventName
@@ -76,7 +86,9 @@ Emitter.prototype.emit = function(eventName) {
     }
   }
 
+  // call each handler, applying the arguments array
   this.handlers[eventName].forEach(function(eventHandler) {
+    // TODO: should `this` be a parameter of the emit function?
     eventHandler.apply(this, parameters);
   }.bind(this));
 
