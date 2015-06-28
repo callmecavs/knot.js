@@ -4,6 +4,10 @@ function Emitter() {
   this.handlers = {};
 }
 
+Emitter.prototype.has = function(eventName) {
+  return this.handlers.hasOwnProperty(eventName);
+}
+
 Emitter.prototype.add = function(eventName, eventHandler) {
   this.handlers[eventName] = this.handlers[eventName] || [];
   this.handlers[eventName].push(eventHandler);
