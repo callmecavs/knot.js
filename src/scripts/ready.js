@@ -9,9 +9,11 @@ Emitter.prototype.has = function(eventName) {
 }
 
 Emitter.prototype.add = function(eventName, eventHandler) {
-  this.handlers[eventName] = this.handlers[eventName] || [];
-  this.handlers[eventName].push(eventHandler);
+  if(!this.has(eventName)) {
+    this.handlers[eventName] = [];
+  }
 
+  this.handlers[eventName].push(eventHandler);
   return this;
 };
 
