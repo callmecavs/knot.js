@@ -2,20 +2,15 @@
   "name": "",
   "version": "1.0.0",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "Michael Cavalea",
+  "license": "MIT",
 
   "devDependencies": {
     "gulp":              "*",
-    "gulp-autoprefixer": "*",
-    "gulp-babel":        "*",
-    "gulp-concat":       "*",
     "gulp-connect":      "*",
-    "gulp-htmlmin":      "*",
-    "gulp-imagemin":     "*",
     "gulp-load-plugins": "*",
     "gulp-plumber":      "*",
-    "gulp-sass":         "*",
+    "gulp-rename":       "*",
     "gulp-uglify":       "*",
     "node-notifier":     "*"
   }

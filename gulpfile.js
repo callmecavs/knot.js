@@ -14,42 +14,14 @@ var onError = function(error) {
   this.emit('end');
 }
 
-// minify html
-gulp.task('html', function() {
-  return gulp.src('src/markup/*.html')
-    .pipe(plugins.plumber({ errorHandler: onError }))
-    .pipe(plugins.htmlmin({ collapseWhitespace: true, removeComments: true }))
-    .pipe(gulp.dest('dist'))
-    .pipe(plugins.connect.reload());
-});
-
-// compile and compress sass
-gulp.task('sass', function() {
-  return gulp.src('src/style/style.scss')
-    .pipe(plugins.plumber({ errorHandler: onError }))
-    .pipe(plugins.sass({ outputStyle: 'compressed' }))
-    .pipe(plugins.autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Explorer >= 9'], cascade: false }))
-    .pipe(gulp.dest('dist'))
-    .pipe(plugins.connect.reload());
-});
-
-// concat and uglify scripts
+// rename and uglify scripts
 gulp.task('scripts', function() {
-  return gulp.src('src/scripts/*.js')
+  return gulp.src('src/*.js')
     .pipe(plugins.plumber({ errorHandler: onError }))
-    .pipe(plugins.babel())
-    .pipe(plugins.concat('scripts.js'))
-    .pipe(plugins.uglify({ preserveComments: 'some' }))
     .pipe(gulp.dest('dist'))
-    .pipe(plugins.connect.reload());
-});
-
-// minify all images
-gulp.task('images', function() {
-  return gulp.src('src/images/**/*')
-    .pipe(plugins.plumber({ errorHandler: onError }))
-    .pipe(plugins.imagemin({ progressive: true }))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(plugins.uglify({ preserveComments: 'some' }))
+    .pipe(plugins.rename(function(path) { path.basename = 'emitter.min' }))
+    .pipe(gulp.dest('dist'))
     .pipe(plugins.connect.reload());
 });
 
@@ -62,14 +34,11 @@ gulp.task('server', function() {
   });
 });
 
-// watch sass and js files
+// watch js files
 gulp.task('watch', function() {
-  gulp.watch('src/markup/**/*', ['html']);
-  gulp.watch('src/style/**/*', ['sass']);
-  gulp.watch('src/scripts/**/*', ['scripts']);
-  gulp.watch('src/images/**/*', ['images']);
+  gulp.watch('src/**/*', ['scripts']);
 });
 
 // build and default task
-gulp.task('build', ['html', 'sass', 'scripts', 'images']);
+gulp.task('build', ['scripts']);
 gulp.task('default', ['server', 'build', 'watch']);
