@@ -20,7 +20,7 @@ gulp.task('scripts', function() {
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(gulp.dest('dist'))
     .pipe(plugins.uglify({ preserveComments: 'some' }))
-    .pipe(plugins.rename(function(path) { path.basename = 'emitter.min' }))
+    .pipe(plugins.rename('emitter.min.js'))
     .pipe(gulp.dest('dist'))
     .pipe(plugins.connect.reload());
 });
