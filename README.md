@@ -38,3 +38,7 @@ emitter.add('eventName', eventHandler)
 ## Roadmap
 
 - [ ] Add events that only fire once
+- [ ] Improve README
+- [ ] Rename, publish to NPM/Bower
+
+[![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
