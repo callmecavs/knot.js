@@ -1,0 +1,9 @@
+<script src="ezmitter.min.js"></script>
+<script>
+  var test2 = { test: 'test' }
+  var test = Ezmitter(test2)
+  test
+    .on('test', function() { console.log('test') })
+    .on('test2', function() { console.log('test2') })
+    .off('test2')
+</script>
