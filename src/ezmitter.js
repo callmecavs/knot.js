@@ -9,6 +9,12 @@ export default (object = {}) => {
     return object
   }
 
+  object.once = (name, handler) => {
+    handler._once = name
+    object.on(name, handler)
+    return object
+  }
+
   object.off = (name) => {
     delete object.events[name]
     return object
@@ -19,7 +25,13 @@ export default (object = {}) => {
     const params = spread(arguments)
 
     // set `this` context in callback(s) to object
-    object.events[name].forEach(callback => callback.apply(object, params))
+    object.events[name].forEach(callback => {
+      // remove events added with `once`
+      callback._once && object.off(callback._once)
+
+      // fire callback with arguments
+      callback.apply(object, params)
+    })
 
     // TODO: accept array of events to fire
     // Array.isArray(name)
