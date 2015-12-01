@@ -33,11 +33,6 @@ export default (object = {}) => {
       handler.apply(object, params)
     })
 
-    // TODO: accept array of events to fire
-    // Array.isArray(name)
-    //   ? names.forEach(name => object.events[name].forEach(callback => callback.apply(object, params)))
-    //   : object.events[name].forEach(callback => callback.apply(object, params))
-
     return object
   }
 
