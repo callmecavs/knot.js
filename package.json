@@ -1,23 +1,24 @@
 {
   "name":        "ezmitter.js",
   "version":     "0.0.1",
-  "description": "",
-  "homepage":    "",
-  "main":        "",
+  "description": "A simple event emitter for use in browsers.",
+  "homepage":    "https://github.com/callmecavs/emitter",
+  "main":        "dist/ezmitter.min.js",
 
-  "author":  "",
-  "license": "",
+  "author":  "Michael Cavalea",
+  "license": "MIT",
 
   "repository": {
     "type": "git",
-    "url":  ""
+    "url":  "https://github.com/callmecavs/emitter"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/callmecavs/emitter/issues"
   },
 
   "keywords": [
-
+    "event",
+    "emitter"
   ],
 
   "devDependencies": {
