@@ -6,7 +6,7 @@ A browser-based emitter, for tying together event handlers.
 
 ## Usage
 
-Knot was developed with a modern JavaScript workflow in mind. To use it, it's recommended you have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that fulfills those requirements, check out [outset](https://github.com/callmecavs/outset).
+Knot was developed with a modern JavaScript workflow in mind. To use it, it's recommended you have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, check out [outset](https://github.com/callmecavs/outset).
 
 Follow these steps to get started:
 
@@ -53,6 +53,7 @@ Add a handler to a new or existing event.
 emitter.on('name', () => {
   // ...
 })
+```
 
 #### `once`
 
@@ -62,6 +63,7 @@ Add a handler, that fires _only once_, to a new or existing event.
 emitter.once('name', () => {
   // ...
 })
+```
 
 #### `off`
 
