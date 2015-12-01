@@ -1,4 +1,5 @@
 export default (args) => {
+  // if additional arguments exist, convert them to an array
   if(args.length > 1) {
     let params = []
 
@@ -8,4 +9,7 @@ export default (args) => {
 
     return params
   }
+
+  // otherwise, return undefined
+  return undefined
 }
