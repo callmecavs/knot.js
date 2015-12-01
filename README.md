@@ -43,7 +43,9 @@ const extended = knot(object)
 
 ### Handle
 
-To handle events, the Knot object exposes the following API:
+Note that all methods are chainable.
+
+To handle events, the Knot emitter exposes the following API:
 
 #### on
 
