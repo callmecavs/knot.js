@@ -45,7 +45,7 @@ const extended = knot(object)
 
 To handle events, the Knot object exposes the following API:
 
-#### `on`
+#### on
 
 Add a handler to a new or existing event.
 
@@ -55,7 +55,7 @@ emitter.on('name', () => {
 })
 ```
 
-#### `once`
+#### once
 
 Add a handler, that fires _only once_, to a new or existing event.
 
@@ -65,7 +65,7 @@ emitter.once('name', () => {
 })
 ```
 
-#### `off`
+#### off
 
 Remove all of an event's handlers.
 
@@ -73,7 +73,7 @@ Remove all of an event's handlers.
 emitter.off('name')
 ```
 
-#### `emit`
+#### emit
 
 Emit an event, firing all of its handlers.
 
