@@ -24,12 +24,12 @@ export default (object = {}) => {
     // convert additional arguments to array
     const params = spread(arguments)
 
-    // set `this` context in handler(s) to object
+    // fire handlers
     object.events[name].forEach(handler => {
-      // remove handlers added with `once`
+      // remove handler if added with `once`
       handler._once && object.events[name].splice(object.events[name].indexOf(handler), 1)
 
-      // fire handler with arguments
+      // set `this` context in handler to object, pass in parameters
       handler.apply(object, params)
     })
 
