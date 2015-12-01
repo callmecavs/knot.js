@@ -26,7 +26,7 @@ const onError = (error) => {
 
 const attribution = [
   '/*!',
-  ' * Ezmitter.js <%= pkg.version %> - <%= pkg.description %>',
+  ' * Knot.js <%= pkg.version %> - <%= pkg.description %>',
   ' * Copyright (c) ' + new Date().getFullYear() + ' <%= pkg.author %> - <%= pkg.homepage %>',
   ' * License: <%= pkg.license %>',
   ' */'
@@ -36,8 +36,8 @@ const attribution = [
 
 const browserifyArgs = {
   debug: true,
-  entries: 'src/ezmitter.js',
-  standalone: 'Ezmitter'
+  entries: 'src/knot.js',
+  standalone: 'Knot'
 }
 
 const watchifyArgs = assign(watchify.args, browserifyArgs)
@@ -55,7 +55,7 @@ const build = () => {
     .bundle()
     .on('error', onError)
     .on('end', () => console.timeEnd('Bundling finished'))
-    .pipe(source('ezmitter.min.js'))
+    .pipe(source('knot.min.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(header(attribution, { pkg: packageJSON }))
@@ -94,5 +94,5 @@ gulp.task('server', () => {
 
 // WATCH
 
-gulp.watch('src/ezmitter.js', ['js'])
+gulp.watch('src/knot.js', ['js'])
 gulp.task('default', ['js', 'server'])

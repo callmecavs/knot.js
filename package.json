@@ -1,19 +1,19 @@
 {
-  "name":        "ezmitter.js",
+  "name":        "knot.js",
   "version":     "0.0.1",
-  "description": "A simple event emitter for use in browsers.",
-  "homepage":    "https://github.com/callmecavs/emitter",
-  "main":        "dist/ezmitter.min.js",
+  "description": "A browser-based emitter, for tying together event handlers.",
+  "homepage":    "https://github.com/callmecavs/knot",
+  "main":        "dist/knot.min.js",
 
   "author":  "Michael Cavalea",
   "license": "MIT",
 
   "repository": {
     "type": "git",
-    "url":  "https://github.com/callmecavs/emitter"
+    "url":  "https://github.com/callmecavs/knot"
   },
   "bugs": {
-    "url": "https://github.com/callmecavs/emitter/issues"
+    "url": "https://github.com/callmecavs/knot/issues"
   },
 
   "keywords": [
