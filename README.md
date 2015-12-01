@@ -12,6 +12,7 @@ Follow these steps to get started:
 
 * [Install](#install)
 * [Call](#call)
+* [Handle](#handle)
 
 ### Install
 
@@ -37,7 +38,51 @@ const emitter = knot()
 
 // extend an existing object, transforming it into an emitter
 const object = new Class()
-const modified = knot(object)
+const extended = knot(object)
+```
+
+### Handle
+
+To handle events, the Knot object exposes the following API:
+
+#### `on`
+
+Add a handler to a new or existing event.
+
+```es6
+emitter.on('name', () => {
+  // ...
+})
+
+#### `once`
+
+Add a handler, that fires _only once_, to a new or existing event.
+
+```es6
+emitter.once('name', () => {
+  // ...
+})
+
+#### `off`
+
+Remove all of an event's handlers.
+
+```es6
+emitter.off('name')
+```
+
+#### `emit`
+
+Emit an event, firing all of its handlers.
+
+```es6
+emitter.emit('name')
+```
+
+Optionally, include arguments that will be passed to each handler.
+
+```es6
+emitter.emit('name', 1, '2', [3])
 ```
 
 ## License
