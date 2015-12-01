@@ -12,7 +12,8 @@ Follow these steps to get started:
 
 * [Install](#install)
 * [Call](#call)
-* [Handle](#handle)
+
+Then dig into the [API](#api).
 
 ### Install
 
@@ -41,13 +42,13 @@ const object = new Class()
 const extended = knot(object)
 ```
 
-### Handle
+## API
 
 Note that all methods are chainable.
 
 To handle events, the Knot emitter exposes the following API:
 
-#### on
+### on
 
 Add a handler to a new or existing event.
 
@@ -57,7 +58,7 @@ emitter.on('name', () => {
 })
 ```
 
-#### once
+### once
 
 Add a handler, that fires _only once_, to a new or existing event.
 
@@ -67,7 +68,7 @@ emitter.once('name', () => {
 })
 ```
 
-#### off
+### off
 
 Remove all of an event's handlers.
 
@@ -75,7 +76,7 @@ Remove all of an event's handlers.
 emitter.off('name')
 ```
 
-#### emit
+### emit
 
 Emit an event, firing all of its handlers.
 
