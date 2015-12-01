@@ -10,7 +10,7 @@ export default (object = {}) => {
   }
 
   object.once = (name, handler) => {
-    handler._once = name
+    handler._once = true
     object.on(name, handler)
     return object
   }
@@ -24,13 +24,14 @@ export default (object = {}) => {
     // convert additional arguments to array
     const params = spread(arguments)
 
-    // set `this` context in callback(s) to object
-    object.events[name].forEach(callback => {
-      // remove events added with `once`
-      callback._once && object.off(callback._once)
+    // set `this` context in handler(s) to object
+    object.events[name].forEach(handler => {
+      // remove handlers added with `once`
+      // BUG: this deletes the entire event
+      handler._once && object.off(handler._once)
 
-      // fire callback with arguments
-      callback.apply(object, params)
+      // fire handler with arguments
+      handler.apply(object, params)
     })
 
     // TODO: accept array of events to fire

@@ -9,7 +9,7 @@
     .on('test1', function() { console.log('test1') })
     .on('test2', function(a, b, c) { console.log('test2', a, b, c); })
     .on('test3', function() { console.log('test3', 'shouldnt fire') })
-    .once('test4', function() { console.log('should only fire once') })
+    .once('test4', function() { console.log('this handler should only fire once') })
     .off('test3')
     .emit('test1')
     .emit('test2', 1, '2', [3])
