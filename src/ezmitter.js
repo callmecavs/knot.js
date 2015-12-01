@@ -27,8 +27,7 @@ export default (object = {}) => {
     // set `this` context in handler(s) to object
     object.events[name].forEach(handler => {
       // remove handlers added with `once`
-      // BUG: this deletes the entire event
-      handler._once && object.off(handler._once)
+      handler._once && object.events[name].splice(object.events[name].indexOf(handler), 1)
 
       // fire handler with arguments
       handler.apply(object, params)

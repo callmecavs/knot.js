@@ -8,13 +8,14 @@
   test
     .on('test1', function() { console.log('test1') })
     .on('test2', function(a, b, c) { console.log('test2', a, b, c); })
-    .on('test3', function() { console.log('test3', 'shouldnt fire') })
-    .once('test4', function() { console.log('this handler should only fire once') })
+    .on('test3', function() { console.log('test3', 'off') })
+    .once('test4', function() { console.log('test4', 'once') })
+    .on('test4', function() { console.log('test4') })
     .off('test3')
     .emit('test1')
     .emit('test2', 1, '2', [3])
     .emit('test4')
-    // .emit('test4')
+    .emit('test4')
 
   // log to console
   console.log(test)
