@@ -1,14 +1,17 @@
 <script src="ezmitter.min.js"></script>
 <script>
   // extend an existing object
-  var test2 = { test: 'test' }
+  var test2 = { test: 'random prop' }
   var test = Ezmitter(test2)
 
   // test emitter functions
   test
-    .on('test', function() { console.log('test') })
-    .on('test2', function() { console.log('test2') })
-    .off('test2')
+    .on('test1', function() { console.log('test1') })
+    .on('test2', function(a, b, c) { console.log('test2', a, b, c); })
+    .on('test3', function() { console.log('test3', 'shouldnt fire') })
+    .off('test3')
+    .emit('test1')
+    .emit('test2', 1, '2', [3])
 
   // log to console
   console.log(test)

@@ -14,16 +14,17 @@ export default (object = {}) => {
     return object
   }
 
-  object.emit = (name) => {
+  object.emit = function(name) {
+    // convert additional arguments to array
     const params = spread(arguments)
 
-    // TODO: should `null` be `object`?
-    object.events[name].forEach(callback => callback.apply(null, params))
+    // set `this` context in callback(s) to object
+    object.events[name].forEach(callback => callback.apply(object, params))
 
-    // TODO: accept array of events
-    // Array.isArray(names)
-    //   ? names.forEach(name => object.events[name].forEach(callback => callback.apply(null, params)))
-    //   : object.events[name].forEach(callback => callback.apply(null, params))
+    // TODO: accept array of events to fire
+    // Array.isArray(name)
+    //   ? names.forEach(name => object.events[name].forEach(callback => callback.apply(object, params)))
+    //   : object.events[name].forEach(callback => callback.apply(object, params))
 
     return object
   }
