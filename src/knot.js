@@ -24,8 +24,11 @@ export default (object = {}) => {
     // convert additional arguments to array
     const params = spread(arguments)
 
+    // cache event state, avoiding mutation from splice while firing handlers
+    const cached = object.events[name].slice()
+
     // fire handlers
-    object.events[name].forEach(handler => {
+    cached.forEach(handler => {
       // remove handler if added with `once`
       handler._once && object.events[name].splice(object.events[name].indexOf(handler), 1)
 
