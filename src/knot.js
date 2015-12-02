@@ -15,8 +15,11 @@ export default (object = {}) => {
     return object
   }
 
-  object.off = (name) => {
-    delete object.events[name]
+  object.off = function(name, handler) {
+    arguments.length === 2
+      ? object.events[name].splice(object.events[name].indexOf(handler), 1)
+      : delete object.events[name]
+
     return object
   }
 
@@ -24,13 +27,13 @@ export default (object = {}) => {
     // convert additional arguments to array
     const params = spread(arguments)
 
-    // cache event state, avoiding mutation from splice while firing handlers
+    // cache event state, to avoid consequences of mutation from splice while firing handlers
     const cached = object.events[name].slice()
 
     // fire handlers
     cached.forEach(handler => {
       // remove handler if added with `once`
-      handler._once && object.events[name].splice(object.events[name].indexOf(handler), 1)
+      handler._once && object.off(name, handler)
 
       // set `this` context in handler to object, pass in parameters
       handler.apply(object, params)
