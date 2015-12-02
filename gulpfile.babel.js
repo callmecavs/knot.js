@@ -94,5 +94,5 @@ gulp.task('server', () => {
 
 // WATCH
 
-gulp.watch('src/knot.js', ['js'])
+// gulp.watch('src/knot.js', ['js'])
 gulp.task('default', ['js', 'server'])
