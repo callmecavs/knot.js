@@ -53,9 +53,17 @@ To handle events, the Knot emitter exposes the following API:
 Add a handler to a new or existing event.
 
 ```es6
+// add an anonymous function as a handler
 emitter.on('name', () => {
   // ...
 })
+
+// add a named function as a handler
+const handler = () => {
+  // ...
+}
+
+emitter.on('name', handler)
 ```
 
 ### once
@@ -63,12 +71,24 @@ emitter.on('name', () => {
 Add a handler, that fires _only once_, to a new or existing event.
 
 ```es6
+// handler can be a named or anonymous function
 emitter.once('name', () => {
   // ...
 })
 ```
 
 ### off
+
+Remove a specific handler from an event.
+
+```es6
+// handler must be a named function
+const handler = () => {
+  // ...
+}
+
+emitter.off('name', handler)
+```
 
 Remove all of an event's handlers.
 
@@ -87,7 +107,20 @@ emitter.emit('name')
 Optionally, include arguments that will be passed to each handler.
 
 ```es6
+// accept arguments in handler
+emitter.on('name', (a, b, c) => {
+  console.log(a)
+  console.log(b)
+  console.log(c)
+})
+
+// include arguments in emit
 emitter.emit('name', 1, '2', [3])
+
+// LOGS:
+// 1
+// '2'
+// [3]
 ```
 
 ## License
