@@ -48,7 +48,7 @@ Note that all methods are chainable.
 
 To handle events, the Knot emitter exposes the following API:
 
-### on
+### on(name, handler)
 
 Add a handler to a new or existing event.
 
@@ -68,7 +68,7 @@ const handler = () => {
 emitter.on('name', handler)
 ```
 
-### once
+### once(name, handler)
 
 Add a handler, that fires _only once_, to a new or existing event.
 
@@ -88,7 +88,7 @@ const handler = () => {
 emitter.once('name', handler)
 ```
 
-### off
+### off(name[, handler])
 
 Remove a specific handler from an event.
 
@@ -108,7 +108,7 @@ Remove all of an event's handlers.
 emitter.off('name')
 ```
 
-### emit
+### emit(name[, arguments])
 
 Emit an event, firing all of its handlers.
 
