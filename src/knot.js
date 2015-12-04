@@ -1,5 +1,3 @@
-import spread from './spread'
-
 export default (object = {}) => {
   object.events = {}
 
@@ -23,10 +21,7 @@ export default (object = {}) => {
     return object
   }
 
-  object.emit = function(name) {
-    // convert additional arguments to array
-    const params = spread(arguments)
-
+  object.emit = function(name, ...args) {
     // cache event state, to avoid consequences of mutation from splice while firing handlers
     const cached = object.events[name].slice()
 
@@ -36,7 +31,7 @@ export default (object = {}) => {
       handler._once && object.off(name, handler)
 
       // set `this` context in handler to object, pass in parameters
-      handler.apply(object, params)
+      handler.apply(object, args)
     })
 
     return object
