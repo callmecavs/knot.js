@@ -23,10 +23,10 @@ export default (object = {}) => {
 
   object.emit = function(name, ...args) {
     // cache event state, to avoid consequences of mutation from splice while firing handlers
-    const cached = object.events[name].slice()
+    const cached = object.events[name] && object.events[name].slice()
 
-    // fire handlers
-    cached.forEach(handler => {
+    // if they exist, fire handlers
+    cached && cached.forEach(handler => {
       // remove handler if added with `once`
       handler._once && object.off(name, handler)
 

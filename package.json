@@ -1,6 +1,6 @@
 {
   "name":        "knot.js",
-  "version":     "0.2.0",
+  "version":     "0.2.1",
   "description": "A browser-based emitter, for tying together event handlers.",
   "homepage":    "https://github.com/callmecavs/knot",
   "main":        "dist/knot.min.js",
