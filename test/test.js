@@ -122,6 +122,12 @@ describe('knot', function() {
           assert.notEqual(subject.birthplaceToTell, subject.birthplace)
         })
       })
+
+      describe('#knot(target).events is own property', function() {
+        it('should not respond to deregistered event', function() {
+          assert.isOk(subject.hasOwnProperty('events'))
+        })
+      })
     })
   })
 })

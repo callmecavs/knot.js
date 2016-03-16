@@ -1,13 +1,23 @@
 export default (object = {}) => {
   let decorated
+  let result
 
   if (checkIsFunction(object)) {
-    decorated = object.prototype
+    // Inherit to add events, an own property
+    class Knotted extends object {
+      constructor() {
+        super()
+        this.events = {}
+      }
+    }
+    decorated = Knotted.prototype
+    // Result should be the constructor but not prototype
+    result = Knotted
   } else {
     decorated = object
+    decorated.events = {}
+    result = object
   }
-
-  decorated.events = {}
 
   decorated.on = function(name, handler) {
     this.events[name] = this.events[name] || []
@@ -47,7 +57,7 @@ export default (object = {}) => {
     return this
   }
 
-  return object
+  return result
 }
 
 function checkIsFunction(toCheck) {
