@@ -1,41 +1,65 @@
 export default (object = {}) => {
-  object.events = {}
+  let decorated
+  let result
 
-  object.on = (name, handler) => {
-    object.events[name] = object.events[name] || []
-    object.events[name].push(handler)
-    return object
+  if (checkIsFunction(object)) {
+    // Inherit to add events, an own property
+    class Knotted extends object {
+      constructor(...args) {
+        super(...args)
+        this.events = {}
+      }
+    }
+    decorated = Knotted.prototype
+    // Result should be the constructor but not prototype
+    result = Knotted
+  } else {
+    decorated = object
+    decorated.events = {}
+    result = object
   }
 
-  object.once = (name, handler) => {
+  decorated.on = function(name, handler) {
+    this.events[name] = this.events[name] || []
+    this.events[name].push(handler)
+
+    return this
+  }
+
+  decorated.once = function(name, handler) {
     handler._once = true
-    object.on(name, handler)
-    return object
+    this.on(name, handler)
+
+    return this
   }
 
-  object.off = function(name, handler) {
+  decorated.off = function(name, handler) {
     arguments.length === 2
-      ? object.events[name].splice(object.events[name].indexOf(handler), 1)
-      : delete object.events[name]
+      ? this.events[name].splice(this.events[name].indexOf(handler), 1)
+      : delete this.events[name]
 
-    return object
+    return this
   }
 
-  object.emit = function(name, ...args) {
+  decorated.emit = function(name, ...args) {
     // cache event state, to avoid consequences of mutation from splice while firing handlers
-    const cached = object.events[name] && object.events[name].slice()
+    const cached = this.events[name] && this.events[name].slice()
 
     // if they exist, fire handlers
     cached && cached.forEach(handler => {
       // remove handler if added with `once`
-      handler._once && object.off(name, handler)
+      handler._once && this.off(name, handler)
 
       // set `this` context in handler to object, pass in parameters
-      handler.apply(object, args)
+      handler.apply(this, args)
     })
 
-    return object
+    return this
   }
 
-  return object
+  return result
+}
+
+function checkIsFunction(toCheck) {
+  return toCheck && typeof toCheck === 'function'
 }

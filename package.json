@@ -1,41 +1,42 @@
 {
-  "name":        "knot.js",
-  "version":     "1.0.1",
+  "name": "knot.js",
+  "version": "1.0.1",
   "description": "A browser-based emitter, for tying together event handlers.",
-  "homepage":    "https://github.com/callmecavs/knot",
-  "main":        "dist/knot.min.js",
-
-  "author":  "Michael Cavalea",
+  "homepage": "https://github.com/callmecavs/knot",
+  "main": "dist/knot.min.js",
+  "author": "Michael Cavalea",
   "license": "MIT",
-
   "repository": {
     "type": "git",
-    "url":  "https://github.com/callmecavs/knot"
+    "url": "https://github.com/callmecavs/knot"
   },
   "bugs": {
     "url": "https://github.com/callmecavs/knot/issues"
   },
-
   "keywords": [
     "event",
     "emitter"
   ],
-
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register --watch --watch-extensions js"
+  },
   "devDependencies": {
-    "babel":                           "*",
-    "babel-preset-es2015":             "*",
+    "babel": "*",
     "babel-plugin-add-module-exports": "*",
-    "babelify":                        "*",
-    "browserify":                      "*",
-    "gulp":                            "*",
-    "gulp-connect":                    "*",
-    "gulp-header":                     "*",
-    "gulp-sourcemaps":                 "*",
-    "gulp-uglify":                     "*",
-    "lodash.assign":                   "*",
-    "node-notifier":                   "*",
-    "vinyl-buffer":                    "*",
-    "vinyl-source-stream":             "*",
-    "watchify":                        "*"
+    "babel-preset-es2015": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "chai": "^3.5.0",
+    "gulp": "*",
+    "gulp-connect": "*",
+    "gulp-header": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "lodash.assign": "*",
+    "mocha": "^2.4.5",
+    "node-notifier": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
   }
 }
