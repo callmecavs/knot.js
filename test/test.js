@@ -6,7 +6,8 @@ const assert = chai.assert
 describe('knot', function() {
   // For Class based test
   class Subject {
-    constructor() {
+    constructor(passedInName) {
+      this.passedInName = passedInName
       this.name = 'knot.js'
       this.birthplace = 'Github'
       this.nameToTell = ''
@@ -43,7 +44,7 @@ describe('knot', function() {
   const tests = [{
     name: 'Class based',
     getSubject() {
-      return new KnottedSubject()
+      return new KnottedSubject('passed in')
     }
   }, {
     name: 'Object based',
@@ -128,6 +129,14 @@ describe('knot', function() {
           assert.isOk(subject.hasOwnProperty('events'))
         })
       })
+
+      if (test.name === 'Class based') {
+        describe('#knot(Class) returns new constructor', function() {
+          it('should preserve constructor arguments', function() {
+            assert.equal(subject.passedInName, 'passed in')
+          })
+        })
+      }
     })
   })
 })

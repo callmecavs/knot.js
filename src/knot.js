@@ -5,8 +5,8 @@ export default (object = {}) => {
   if (checkIsFunction(object)) {
     // Inherit to add events, an own property
     class Knotted extends object {
-      constructor() {
-        super()
+      constructor(...args) {
+        super(...args)
         this.events = {}
       }
     }
