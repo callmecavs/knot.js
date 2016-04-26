@@ -145,6 +145,10 @@ emitter.emit('name', 1, '2', [3], {})
 // LOG: 1 '2' [3] {}
 ```
 
+## Browser Support
+
+Tested in all modern browsers and **IE10+**.
+
 ## License
 
 MIT. © 2016 Michael Cavalea
