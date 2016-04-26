@@ -2,7 +2,7 @@
 
 [![Knot.js on NPM](https://img.shields.io/npm/v/knot.js.svg)](https://www.npmjs.com/package/knot.js)
 
-A browser-based emitter, for tying together event handlers.
+A browser-based event emitter, for tying things together.
 
 ## Usage
 
