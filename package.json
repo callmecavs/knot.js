@@ -1,8 +1,8 @@
 {
   "name":        "knot.js",
   "version":     "1.0.1",
-  "description": "A browser-based emitter, for tying together event handlers.",
-  "homepage":    "https://github.com/callmecavs/knot",
+  "description": "A browser-based event emitter, for tying things together.",
+  "homepage":    "https://github.com/callmecavs/knot.js",
   "main":        "dist/knot.min.js",
 
   "author":  "Michael Cavalea",
@@ -10,10 +10,10 @@
 
   "repository": {
     "type": "git",
-    "url":  "https://github.com/callmecavs/knot"
+    "url":  "https://github.com/callmecavs/knot.js"
   },
   "bugs": {
-    "url": "https://github.com/callmecavs/knot/issues"
+    "url": "https://github.com/callmecavs/knot.js/issues"
   },
 
   "keywords": [
@@ -22,20 +22,16 @@
   ],
 
   "devDependencies": {
-    "babel":                           "*",
-    "babel-preset-es2015":             "*",
-    "babel-plugin-add-module-exports": "*",
-    "babelify":                        "*",
-    "browserify":                      "*",
-    "gulp":                            "*",
-    "gulp-connect":                    "*",
-    "gulp-header":                     "*",
-    "gulp-sourcemaps":                 "*",
-    "gulp-uglify":                     "*",
-    "lodash.assign":                   "*",
-    "node-notifier":                   "*",
-    "vinyl-buffer":                    "*",
-    "vinyl-source-stream":             "*",
-    "watchify":                        "*"
+    "babel-preset-es2015-rollup":                "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "browser-sync":                              "*",
+    "del":                                       "*",
+    "gulp":                                      "*",
+    "node-notifier":                             "*",
+    "rollup":                                    "*",
+    "rollup-plugin-babel":                       "*",
+    "rollup-plugin-commonjs":                    "*",
+    "rollup-plugin-node-resolve":                "*",
+    "rollup-plugin-uglify":                      "*"
   }
 }
