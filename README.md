@@ -44,9 +44,14 @@ const extended = knot(object)
 
 ## API
 
-Note that all methods are chainable.
+Note that **all methods are chainable**.
 
-To handle events, the Knot emitter exposes the following API:
+Knot exposes the following API:
+
+* [`on`](#onname-handler)
+* [`once`](#oncename-handler)
+* [`off`](#offname-handler)
+* [`emit`](#emitname-arguments)
 
 ### .on(name, handler)
 
@@ -125,13 +130,13 @@ emitter.on('name', (a, b, c) => console.log(a, b, c))
 
 // include arguments in call to emit
 
-emitter.emit('name', 1, '2', [3])
+emitter.emit('name', 1, '2', [3], {})
 
-// LOG: 1 '2' [3]
+// LOG: 1 '2' [3] {}
 ```
 
 ## License
 
-MIT. © 2015 Michael Cavalea
+MIT. © 2016 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

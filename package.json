@@ -17,6 +17,7 @@
   },
 
   "keywords": [
+    "browser",
     "event",
     "emitter"
   ],
