@@ -30,6 +30,8 @@ Simply import Knot, then call it.
 * Passed _no parameters_, Knot will return a new emitter
 * Passed _an object_, Knot will extend it to include the emitter methods
 
+The `this` context in the event handlers is the extended object if passed in. Otherwise, its the emitter itself.
+
 ```es6
 // import Knot
 import knot from 'knot.js'
@@ -42,9 +44,14 @@ const object = new Class()
 const extended = knot(object)
 ```
 
+Note that the `this` context in the event handlers:
+
+* Is the object passed in, if one was provided
+* Otherwise, it is the emitter itself
+
 ## API
 
-Note that **all methods are chainable**.
+All methods are chainable.
 
 Knot exposes the following API:
 
