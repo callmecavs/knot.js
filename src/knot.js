@@ -1,41 +1,49 @@
 export default (object = {}) => {
-  object.events = {}
+  const events = {}
 
-  object.on = (name, handler) => {
-    object.events[name] = object.events[name] || []
-    object.events[name].push(handler)
-    return object
+  function on(name, handler) {
+    events[name] = events[name] || []
+    events[name].push(handler)
+    return this
   }
 
-  object.once = (name, handler) => {
+  function once(name, handler) {
     handler._once = true
-    object.on(name, handler)
-    return object
+    on(name, handler)
+    return this
   }
 
-  object.off = function(name, handler) {
-    arguments.length === 2
-      ? object.events[name].splice(object.events[name].indexOf(handler), 1)
-      : delete object.events[name]
+  function off(name, handler = false) {
+    handler
+      ? events[name].splice(events[name].indexOf(handler), 1)
+      : delete events[name]
 
-    return object
+    return this
   }
 
-  object.emit = function(name, ...args) {
-    // cache event state, to avoid consequences of mutation from splice while firing handlers
-    const cached = object.events[name] && object.events[name].slice()
+  function emit(name, ...args) {
+    // cache the events, to avoid consequences of mutation
+    const cache = events[name] && events[name].slice()
 
-    // if they exist, fire handlers
-    cached && cached.forEach(handler => {
-      // remove handler if added with `once`
-      handler._once && object.off(name, handler)
+    // only fire handlers if they exist
+    cache && cache.forEach(handler => {
+      // remove handlers added with 'once'
+      handler._once && off(name, handler)
 
-      // set `this` context in handler to object, pass in parameters
-      handler.apply(object, args)
+      // set 'this' context, pass args to handlers
+      handler.apply(this, args)
     })
 
-    return object
+    return this
   }
 
-  return object
+  return {
+    ...object,
+
+    events,
+    on,
+    once,
+    off,
+    emit
+  }
 }
