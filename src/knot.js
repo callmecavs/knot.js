@@ -40,7 +40,6 @@ export default (object = {}) => {
   return {
     ...object,
 
-    events,
     on,
     once,
     off,
