@@ -37,14 +37,17 @@ Note that the `this` context in the event handlers:
 
 ```es6
 // import Knot
+
 import knot from 'knot.js'
 
 // create a new emitter
 // in the handlers, 'this' refers to the emitter
+
 const emitter = knot()
 
 // extend an existing object, transforming it into an emitter
 // in the handlers, 'this' refers to the Class
+
 const object = new Class()
 const extended = knot(object)
 ```
