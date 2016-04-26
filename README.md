@@ -126,7 +126,7 @@ Optionally, include arguments that will be passed to each handler.
 ```es6
 // accept arguments in handler
 
-emitter.on('name', (a, b, c) => console.log(a, b, c))
+emitter.on('name', (a, b, c, d) => console.log(a, b, c, d))
 
 // include arguments in call to emit
 
