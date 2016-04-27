@@ -1,9 +1,10 @@
 {
   "name":        "knot.js",
-  "version":     "1.1.0",
+  "version":     "1.1.1",
   "description": "A browser-based event emitter, for tying things together.",
   "homepage":    "https://github.com/callmecavs/knot.js",
   "main":        "dist/knot.min.js",
+  "jsnext:main": "src/knot.js",
 
   "author":  "Michael Cavalea",
   "license": "MIT",
