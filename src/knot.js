@@ -1,5 +1,5 @@
 export default (object = {}) => {
-  const events = {}
+  const events = Object.create(null)
 
   function on(name, handler) {
     events[name] = events[name] || []
