@@ -6,7 +6,7 @@
   "module":      "dist/knot.module.js",
   "jsnext:main": "dist/knot.module.js",
 
-  "version": "1.1.4",
+  "version": "1.1.5",
   "license": "MIT",
 
   "repository": "callmecavs/knot.js",
