@@ -1,19 +1,19 @@
-export default (object = {}) => {
+const knot = (extended = {}) => {
   const events = Object.create(null)
 
-  function on(name, handler) {
+  function on (name, handler) {
     events[name] = events[name] || []
     events[name].push(handler)
     return this
   }
 
-  function once(name, handler) {
+  function once (name, handler) {
     handler._once = true
     on(name, handler)
     return this
   }
 
-  function off(name, handler = false) {
+  function off (name, handler = false) {
     handler
       ? events[name].splice(events[name].indexOf(handler), 1)
       : delete events[name]
@@ -21,7 +21,7 @@ export default (object = {}) => {
     return this
   }
 
-  function emit(name, ...args) {
+  function emit (name, ...args) {
     // cache the events, to avoid consequences of mutation
     const cache = events[name] && events[name].slice()
 
@@ -38,7 +38,7 @@ export default (object = {}) => {
   }
 
   return {
-    ...object,
+    ...extended,
 
     on,
     once,
@@ -46,3 +46,5 @@ export default (object = {}) => {
     emit
   }
 }
+
+export default knot
