@@ -1,6 +1,6 @@
 # Knot.js
 
-[![Knot.js on NPM](https://img.shields.io/npm/v/knot.js.svg?style=flat-square)](https://www.npmjs.com/package/knot.js) [![Knot.js Downloads on NPM](https://img.shields.io/npm/dm/knot.js.svg?style=flat-square)](npmjs.com/package/knot.js) [![Standard JavaScript Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+[![Knot.js on NPM](https://img.shields.io/npm/v/knot.js.svg?style=flat-square)](https://www.npmjs.com/package/knot.js) [![Knot.js Downloads on NPM](https://img.shields.io/npm/dm/knot.js.svg?style=flat-square)](https://www.npmjs.com/package/knot.js) [![Standard JavaScript Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
 A browser-based event emitter, for tying things together.
 
@@ -151,6 +151,6 @@ Tested in all modern browsers and **IE10+**.
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT). © 2016 Michael Cavalea
+[MIT](https://opensource.org/licenses/MIT). © 2017 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
