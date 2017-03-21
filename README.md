@@ -151,6 +151,6 @@ Tested in all modern browsers and **IE10+**.
 
 ## License
 
-MIT. © 2017 Michael Cavalea
+[MIT](https://opensource.org/licenses/MIT). © 2016 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
