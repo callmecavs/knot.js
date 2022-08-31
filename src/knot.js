@@ -43,7 +43,8 @@ const knot = (extended = {}) => {
     on,
     once,
     off,
-    emit
+    emit,
+    events
   }
 }
 
